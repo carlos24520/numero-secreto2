@@ -56,7 +56,7 @@ function verificarIntento() {
 }
 
 function condicionesIniciales() {
-    asignarTextoElemento('h1', 'Juego del Amigo Secreto');
+    asignarTextoElemento('h1', 'Juego del Numero Secreto');
     asignarTextoElemento('p', `Indica un número del 1 al ${numeroMaximo}. Tienes ${maxIntentos} intentos.`);
     numeroSecreto = generarNumeroSecreto();
     intentos = 0;
