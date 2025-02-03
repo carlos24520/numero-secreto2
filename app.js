@@ -1,8 +1,8 @@
 let numeroSecreto = 0;
 let intentos = 0;
 let listaNumerosSorteados = [];
-let numeroMaximo = 10;
-let maxIntentos = 3;
+const numeroMaximo = 10;
+const maxIntentos = 3;
 
 function generarNumeroSecreto() {
     let numeroGenerado;
@@ -15,22 +15,22 @@ function generarNumeroSecreto() {
 }
 
 function asignarTextoElemento(elemento, texto) {
-    let elementoHTML = document.querySelector(elemento);
+    const elementoHTML = document.querySelector(elemento);
     if (elementoHTML) {
-        elementoHTML.innerHTML = texto;
+        elementoHTML.textContent = texto;
     }
 }
 
 function limpiarCaja() {
-    let valorCaja = document.getElementById('valorUsuario');
+    const valorCaja = document.getElementById('valorUsuario');
     if (valorCaja) {
         valorCaja.value = '';
     }
 }
 
 function verificarIntento() {
-    let valorCaja = document.getElementById("valorUsuario");
-    let numeroDeUsuario = parseInt(valorCaja.value);
+    const valorCaja = document.getElementById("valorUsuario");
+    const numeroDeUsuario = parseInt(valorCaja.value);
     
     if (isNaN(numeroDeUsuario)) {
         asignarTextoElemento('p', 'Por favor, ingresa un número válido.');
@@ -47,7 +47,7 @@ function verificarIntento() {
             asignarTextoElemento('p', `¡Agotaste tus intentos! El número secreto era ${numeroSecreto}.`);
             document.getElementById('reiniciar').removeAttribute('disabled');
         } else {
-            let mensaje = numeroDeUsuario > numeroSecreto ? 'El número secreto es menor.' : 'El número secreto es mayor.';
+            const mensaje = numeroDeUsuario > numeroSecreto ? 'El número secreto es menor.' : 'El número secreto es mayor.';
             asignarTextoElemento('p', `${mensaje} Te quedan ${maxIntentos - intentos} intento(s).`);
         }
     }
@@ -69,4 +69,4 @@ function reiniciarJuego() {
 }
 
 // Inicializar el juego al cargar la página
-condicionesIniciales();
+document.addEventListener("DOMContentLoaded", condicionesIniciales);
